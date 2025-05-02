@@ -1,22 +1,149 @@
-<!doctype html>
-<html lang="en">
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Landing page profissional para um freelancer especializado em landing pages e sites pessoais" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+		<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,600,700&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<slot />
+		<style is:global>
+			:root {
+				--cor-primaria: #2D3436;
+				--cor-secundaria: #7159C1;
+				--cor-accent: #00B894;
+				--cor-neutra: #F5F6FA;
+				--sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+				--transicao-padrao: all 0.3s ease;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			html {
+				scroll-behavior: smooth;
+				font-size: 16px;
+			}
+			
+			body {
+				font-family: 'Inter', sans-serif;
+				color: var(--cor-primaria);
+				background-color: var(--cor-neutra);
+				overflow-x: hidden;
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Clash Display', sans-serif;
+				font-weight: 700;
+			}
+			
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+			
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+			
+			.container {
+				width: 90%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1rem;
+			}
+			
+			.section {
+				padding: 5rem 0;
+			}
+			
+			.section-title {
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+				text-align: center;
+			}
+			
+			.section-description {
+				font-size: 1.125rem;
+				max-width: 700px;
+				margin: 0 auto 3rem;
+				text-align: center;
+				line-height: 1.6;
+			}
+			
+			.btn {
+				display: inline-block;
+				padding: 0.75rem 1.5rem;
+				border-radius: 8px;
+				font-family: 'Poppins', sans-serif;
+				font-weight: 600;
+				cursor: pointer;
+				transition: var(--transicao-padrao);
+			}
+			
+			.btn-primary {
+				background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-accent));
+				color: white;
+				border: none;
+			}
+			
+			.btn-primary:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+			}
+			
+			@media (max-width: 1440px) {
+				html {
+					font-size: 15px;
+				}
+			}
+			
+			@media (max-width: 1024px) {
+				.section {
+					padding: 4rem 0;
+				}
+			}
+			
+			@media (max-width: 768px) {
+				html {
+					font-size: 14px;
+				}
+				.section {
+					padding: 3rem 0;
+				}
+				.section-title {
+					font-size: 2rem;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				.section {
+					padding: 2.5rem 0;
+				}
+				.section-title {
+					font-size: 1.75rem;
+				}
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

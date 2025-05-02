@@ -1,0 +1,201 @@
+---
+---
+
+<section class="metricas-section">
+  <div class="container">
+    <div class="metricas-grid">
+      <div class="metrica-item">
+        <div class="metrica-icone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="metrica-numero" data-count="127">0</div>
+        <div class="metrica-titulo">Clientes Satisfeitos</div>
+      </div>
+      
+      <div class="metrica-separador"></div>
+      
+      <div class="metrica-item">
+        <div class="metrica-icone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="metrica-numero" data-count="93">0</div>
+        <div class="metrica-titulo">Projetos Concluídos</div>
+      </div>
+      
+      <div class="metrica-separador"></div>
+      
+      <div class="metrica-item">
+        <div class="metrica-icone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20v-6M6 20V10M18 20V4"></path>
+          </svg>
+        </div>
+        <div class="metrica-numero" data-count="84">0</div>
+        <div class="metrica-percentual">%</div>
+        <div class="metrica-titulo">Taxa de Conversão</div>
+      </div>
+      
+      <div class="metrica-separador"></div>
+      
+      <div class="metrica-item">
+        <div class="metrica-icone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="7"></circle>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+          </svg>
+        </div>
+        <div class="metrica-numero" data-count="12">0</div>
+        <div class="metrica-titulo">Anos de Experiência</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animação de contagem
+  function iniciarContagem() {
+    const metricas = document.querySelectorAll('.metrica-numero');
+    
+    metricas.forEach(metrica => {
+      const valorFinal = parseInt(metrica.getAttribute('data-count'));
+      const incremento = valorFinal / 30; // Dividir a contagem em 30 passos
+      let valorAtual = 0;
+      
+      const timer = setInterval(() => {
+        valorAtual += incremento;
+        if (valorAtual >= valorFinal) {
+          metrica.textContent = valorFinal;
+          clearInterval(timer);
+        } else {
+          metrica.textContent = Math.floor(valorAtual);
+        }
+      }, 50);
+    });
+  }
+  
+  // Verificar se a seção está visível na viewport
+  function verificarVisibilidade() {
+    const secao = document.querySelector('.metricas-section');
+    const posicao = secao.getBoundingClientRect();
+    
+    // Se a seção estiver visível na viewport
+    if (posicao.top < window.innerHeight && posicao.bottom >= 0) {
+      iniciarContagem();
+      // Remover o listener após iniciar a contagem
+      window.removeEventListener('scroll', verificarVisibilidade);
+    }
+  }
+  
+  window.addEventListener('scroll', verificarVisibilidade);
+  window.addEventListener('load', verificarVisibilidade);
+</script>
+
+<style>
+  .metricas-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1603201667141-5a2d4c673378?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding: 6rem 0;
+    color: white;
+  }
+  
+  .metricas-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .metrica-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+  }
+  
+  .metrica-icone {
+    margin-bottom: 1.5rem;
+    color: var(--cor-accent);
+    opacity: 0.9;
+  }
+  
+  .metrica-numero {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    display: inline-block;
+  }
+  
+  .metrica-percentual {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 0.25rem;
+    vertical-align: top;
+  }
+  
+  .metrica-titulo {
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .metrica-separador {
+    width: 1px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  @media (max-width: 1200px) {
+    .metrica-numero {
+      font-size: 3.5rem;
+    }
+    
+    .metrica-percentual {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .metricas-grid {
+      justify-content: center;
+      gap: 3rem;
+    }
+    
+    .metrica-item {
+      flex-basis: 40%;
+    }
+    
+    .metrica-separador {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .metrica-item {
+      flex-basis: 100%;
+      margin-bottom: 3rem;
+    }
+    
+    .metrica-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+</style>

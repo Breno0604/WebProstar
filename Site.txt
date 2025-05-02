@@ -1,0 +1,104 @@
+Utilize astro (não utlizar outros frameworks, se houver necessidade me pergunte se pode utilizar)
+Observação: ja instalei o astro e o node_modules
+
+Crei um landing page profissional para um freelancer que cria "landig pages e sites pessoais".
+Estilo moderno e profissional.
+Utilize imagens da internet, apenas para servir como modelo.
+Utilize animações suaves e profissional.
+Utilize transições entres as seções suaves e profissional.
+A landing page deve passar a mensagem da qualidade da entrega de resultado.
+
+Segue estrutura da landing page:
+
+1. Header e Navegação
+Header com altura de 80px, fundo transparente com blur effect
+Logo/nome em fonte sans-serif moderna (ex: Poppins Bold, 24px)
+Menu com espaçamento de 32px entre itens
+Links com efeito hover sublinhado
+Botão Orçamento com background gradient e border-radius 8px
+Menu mobile com ícone hamburger animado
+
+2. Hero Section
+Altura mínima de 100vh
+Título em fonte display (ex: Clash Display, 64px)
+Subtítulo em fonte secundária (18px, line-height 1.6)
+Grid dividido: 60% conteúdo, 40% ilustração/imagem
+Scroll indicator animado no bottom
+
+3. Seção de Projetos em Destaque
+Grid responsivo (4 colunas em desktop, 2 em tablet, 1 em mobile)
+Cards com aspect ratio 16:9
+Thumbnails com lazy loading
+Overlay no hover com:
+Título do projeto (24px)
+Tag do tipo de projeto
+Botão Ver Projeto
+Filtros por categoria no topo
+Paginação ou Carregar Mais no final
+
+4. Serviços Oferecidos
+3 cards principais com shadow suave
+Ícones vetoriais animados (tamanho 48x48px)
+Preços com destaque tipográfico
+Lista de features incluídas com check icons
+Tags indicando Mais Popular ou Recomendado
+Botão CTA em cada card com hover effect
+
+5. Métricas e Resultados
+Counter animation ao scrollar
+Números em fonte display grande (72px)
+Ícones ilustrativos para cada métrica
+Layout em grid 4x1
+Separadores verticais entre items
+Parallax scroll effect no background
+
+6. Seção de Depoimentos
+Slider com navegação touch
+Cards com background claro e shadow
+Aspas decorativas como elemento visual
+Foto do cliente em círculo (64x64px)
+Rating stars abaixo do depoimento
+Auto-play com pausa no hover
+Navegação por dots e arrows
+
+7. FAQ
+Deve ser bem detalhada
+
+8. Footer
+Background escuro com gradiente sutil
+Grid responsivo com 4 colunas
+Logo em versão light/dark
+Ícones de redes sociais com hover animation- Newsletter signup integrado
+Back-to-top button animado
+Linha separadora superior com gradient
+
+9. Elementos de Design e Interação
+Esquema de cores:
+Cor primária: #2D3436
+Cor secundária: #7159C1
+Accent color: #00B894
+Neutros: #F5F6FA
+Tipografia:
+Títulos: Clash Display
+Corpo: Inter
+Destaques: Poppins
+Micro-interações:
+Hover states em todos botões
+Smooth scroll behavior
+Reveal on scroll animations
+Loading states
+Cursor customizado
+Responsividade:
+Breakpoints: 1440px, 1024px, 768px, 480px
+Mobile-first approach
+Menu adaptativo
+Imagens otimizadas
+
+10. Performance e Acessibilidade
+Lazy loading para imagens
+Compressão de assets
+Alt texts em todas imagens
+ARIA labels nos elementos interativos
+Contraste adequado para textos
+Focus states visíveis
+Semantic HTML structure
